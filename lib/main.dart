@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:jiitak_ui_test/Pages/uiOne.dart';
+import 'package:jiitak_ui_test/Pages/uione.dart';
 
 void main() {
   runApp(const MyApp());
