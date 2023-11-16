@@ -17,7 +17,7 @@ class CalenderDateWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 90,
-      width: 60,
+      width: 45,
       decoration: BoxDecoration(
         borderRadius: const BorderRadius.all(Radius.circular(10)),
         color: newindex == 0 ? Pallete.yellow : Pallete.whiteColor,
@@ -28,10 +28,10 @@ class CalenderDateWidget extends StatelessWidget {
         children: [
           Text(numDate,
               style:
-                  const TextStyle(fontWeight: FontWeight.bold, fontSize: 20)),
+                  const TextStyle(fontWeight: FontWeight.bold, fontSize: 18)),
           rrHeight10,
           Text(japanDate,
-              style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 20))
+              style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 18))
         ],
       ),
     );
