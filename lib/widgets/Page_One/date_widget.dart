@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../Color/colors.dart';
-import '../constants/constants.dart';
+import '../../Color/colors.dart';
+import '../../constants/constants.dart';
 
 class CalenderDateWidget extends StatelessWidget {
   const CalenderDateWidget(

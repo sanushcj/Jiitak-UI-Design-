@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:jiitak_ui_test/Pages/uione.dart';
+// import 'package:jiitak_ui_test/Pages/uione.dart';
+import 'bottom_nav bar/custombottomnavbar.dart';
 
 void main() {
   runApp(const MyApp());
@@ -10,10 +11,10 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       title: "Jiitak UI",
       debugShowCheckedModeBanner: false,
-      home: HomePage(),
+      home: ScreenNavigation(),
     );
   }
 }
