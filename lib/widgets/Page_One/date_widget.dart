@@ -27,11 +27,16 @@ class CalenderDateWidget extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(numDate,
-              style:
-                  const TextStyle(fontWeight: FontWeight.bold, fontSize: 18)),
+              style: TextStyle(
+                  color: newindex == 0 ? Pallete.whiteColor : Pallete.black,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 18)),
           rrHeight10,
           Text(japanDate,
-              style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 18))
+              style: TextStyle(
+                  color: newindex == 0 ? Pallete.whiteColor : Pallete.black,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 18))
         ],
       ),
     );

@@ -10,7 +10,8 @@ class Feedtile extends StatelessWidget {
       required this.titleThree,
       required this.titleFour,
       required this.titleFive,
-      required this.titleSix});
+      required this.titleSix,
+      required this.img});
 
   final String titleOne;
   final String titleTwo;
@@ -19,10 +20,12 @@ class Feedtile extends StatelessWidget {
   final String titleFour;
   final String titleFive;
   final String titleSix;
+  final String img;
 
   @override
   Widget build(BuildContext context) {
     return Container(
+      // color: Pallete.black,
       padding: const EdgeInsets.only(
         left: 25,
         right: 25,
@@ -36,14 +39,13 @@ class Feedtile extends StatelessWidget {
             Container(
               height: MediaQuery.sizeOf(context).height / 4,
               width: double.infinity,
-              decoration: const BoxDecoration(
-                image: DecorationImage(
-                    image: AssetImage('assets/img/Careworker One.jpg'),
-                    fit: BoxFit.cover),
-                borderRadius: BorderRadius.only(
+              decoration: BoxDecoration(
+                image:
+                    DecorationImage(image: AssetImage(img), fit: BoxFit.cover),
+                borderRadius: const BorderRadius.only(
                     topLeft: Radius.circular(15),
                     topRight: Radius.circular(15)),
-                color: Pallete.purpleColor,
+                // color: Pallete.lightpurple,
               ),
             ),
             Positioned(
@@ -116,6 +118,7 @@ class Feedtile extends StatelessWidget {
                         Text(
                           amount,
                           style: const TextStyle(
+                              fontSize: 17,
                               color: Pallete.black,
                               fontWeight: FontWeight.bold),
                         )

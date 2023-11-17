@@ -1,4 +1,8 @@
+// ignore: file_names
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:jiitak_ui_test/Pages/uitwo.dart';
 import 'package:jiitak_ui_test/constants/constants.dart';
 // import 'package:jiitak_ui_test/widgets/Page_One/Page_One/date_widget.dart'
 import 'package:jiitak_ui_test/widgets/Page_One/feed_tile.dart';
@@ -6,78 +10,87 @@ import '../widgets/Page_One/custom_appbar.dart';
 import '../widgets/Page_One/date_widget.dart';
 
 class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+  const HomePage({
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: Custom_AppBar(),
-      body: SizedBox(
-        height: MediaQuery.of(context).size.height,
-        child: Column(children: [
+      body: Column(
+        children: [
           Container(
             alignment: Alignment.center,
             width: double.infinity,
             height: MediaQuery.of(context).size.height / 21,
             color: Colors.amber,
-            child: const Text('2022年5月26日  (木)'),
+            child: const Text('2022年5月26日 (木)'),
           ),
           Expanded(
-            child: ListView(
-              shrinkWrap: true,
-              scrollDirection: Axis.vertical,
-              children: [
-                rrHeight20,
-                //Date
-                SizedBox(
-                  height: MediaQuery.of(context).size.height / 10,
-                  child: ListView.separated(
-                    padding: const EdgeInsets.all(5),
-                    scrollDirection: Axis.horizontal,
-                    shrinkWrap: true,
-                    physics: const BouncingScrollPhysics(),
-                    separatorBuilder: (context, index) => rrwidth10,
-                    itemCount: tempCalender.length,
-                    itemBuilder: (context, index) => CalenderDateWidget(
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  rrHeight20,
+                  // Date
+                  SizedBox(
+                    height: MediaQuery.of(context).size.height / 10,
+                    child: ListView.separated(
+                      padding: const EdgeInsets.all(5),
+                      scrollDirection: Axis.horizontal,
+                      shrinkWrap: true,
+                      physics: const BouncingScrollPhysics(),
+                      separatorBuilder: (context, index) => rrwidth10,
+                      itemCount: tempCalender.length,
+                      itemBuilder: (context, index) => CalenderDateWidget(
                         newindex: index,
                         numDate: tempCalender[index]['japan'].toString(),
-                        japanDate: tempCalender[index]['Date'].toString()),
+                        japanDate: tempCalender[index]['Date'].toString(),
+                      ),
+                    ),
                   ),
-                ),
-                //FeedTile
-                SizedBox(
-                  child: Padding(
+                  // FeedTile
+                  Padding(
                     padding:
                         const EdgeInsets.only(left: 10, right: 10, top: 20),
-                    child: ListView.separated(
-                      shrinkWrap: true,
-                      itemBuilder: (context, index) => Feedtile(
-                          titleOne: feedText[index]['title1'].toString(),
-                          titleTwo: feedText[index]['title2'].toString(),
-                          amount: feedText[index]['amount'].toString(),
-                          titleThree: feedText[index]['title3'].toString(),
-                          titleFour: feedText[index]['title4'].toString(),
-                          titleFive: feedText[index]['title5'].toString(),
-                          titleSix: feedText[index]['title6'].toString()),
-                      separatorBuilder: (context, index) => rrHeight20,
-                      itemCount: feedText.length,
+                    child: Column(
+                      children: List.generate(
+                        feedText.length,
+                        (index) => Column(
+                          children: [
+                            Feedtile(
+                              img: feedText[index]['img'].toString(),
+                              titleOne: feedText[index]['title1'].toString(),
+                              titleTwo: feedText[index]['title2'].toString(),
+                              amount: feedText[index]['amount'].toString(),
+                              titleThree: feedText[index]['title3'].toString(),
+                              titleFour: feedText[index]['title4'].toString(),
+                              titleFive: feedText[index]['title5'].toString(),
+                              titleSix: feedText[index]['title6'].toString(),
+                            ),
+                            if (index < feedText.length - 1) rrHeight20,
+                          ],
+                        ),
+                      ),
                     ),
-                    //
                   ),
-                )
-              ],
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: ElevatedButton.icon(
+                        onPressed: () => Get.to(const UIPageTwo()),
+                        icon: const Icon(CupertinoIcons.arrow_right),
+                        label: const Text('Next UI')),
+                  ),
+                  rrHeight60
+                ],
+              ),
             ),
-          )
-        ]),
+          ),
+        ],
       ),
     );
   }
-} //
-//
-//
-//
-//
-//
+}
 
 List<Map<String, String>> feedText = [
   {
@@ -88,6 +101,7 @@ List<Map<String, String>> feedText = [
     'title4': '北海道札幌市東雲町3丁目916番地17号',
     'title5': ' 交通費300円',
     'title6': '住宅型有料老人ホームひまわり倶楽部',
+    'img': 'assets/img/Careworker One.jpg'
   },
   {
     'title1': '介護有料老人ホームひまわり倶楽部の介護職/ヘ',
@@ -97,6 +111,7 @@ List<Map<String, String>> feedText = [
     'title4': '北海道札幌市東雲町3丁目916番地17号',
     'title5': ' 交通費300円',
     'title6': '住宅型有料老人ホームひまわり倶楽部',
+    'img': 'assets/img/nursing two.jpg'
   },
   {
     'title1': '介護有料老人ホームひまわり倶楽部の介護職/ヘ',
@@ -106,6 +121,7 @@ List<Map<String, String>> feedText = [
     'title4': '北海道札幌市東雲町3丁目916番地17号',
     'title5': ' 交通費300円',
     'title6': '住宅型有料老人ホームひまわり倶楽部',
+    'img': 'assets/img/care worker 3.jpg'
   },
   {
     'title1': '介護有料老人ホームひまわり倶楽部の介護職/ヘ',
@@ -115,6 +131,7 @@ List<Map<String, String>> feedText = [
     'title4': '北海道札幌市東雲町3丁目916番地17号',
     'title5': ' 交通費300円',
     'title6': '住宅型有料老人ホームひまわり倶楽部',
+    'img': 'assets/img/Careworker One.jpg'
   },
   {
     'title1': '介護有料老人ホームひまわり倶楽部の介護職/ヘ',
@@ -124,6 +141,7 @@ List<Map<String, String>> feedText = [
     'title4': '北海道札幌市東雲町3丁目916番地17号',
     'title5': ' 交通費300円',
     'title6': '住宅型有料老人ホームひまわり倶楽部',
+    'img': 'assets/img/Careworker One.jpg'
   },
   {
     'title1': '介護有料老人ホームひまわり倶楽部の介護職/ヘ',
@@ -133,6 +151,7 @@ List<Map<String, String>> feedText = [
     'title4': '北海道札幌市東雲町3丁目916番地17号',
     'title5': ' 交通費300円',
     'title6': '住宅型有料老人ホームひまわり倶楽部',
+    'img': 'assets/img/Careworker One.jpg'
   },
 ];
 
