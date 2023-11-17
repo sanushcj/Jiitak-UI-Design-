@@ -89,6 +89,14 @@ class ImgPickWidget extends StatelessWidget {
   }
 }
 
+List<File> product_images = [];
+
+//
+void selectImages() async {
+  var result = await productpickImages();
+  product_images = result;
+}
+
 Future<List<File>> productpickImages() async {
   List<File> images = [];
   try {

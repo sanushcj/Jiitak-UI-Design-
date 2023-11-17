@@ -1,10 +1,16 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:jiitak_ui_test/constants/constants.dart';
+import 'package:jiitak_ui_test/widgets/Page_Three/dropdownpage.dart';
+import '../Color/colors.dart';
 import '../widgets/Page_Three/common_textfield.dart';
 import '../widgets/Page_Three/img_and_title.dart';
+import '../widgets/Page_Three/second_drop_down.dart';
 import '../widgets/Page_Three/third_appbar.dart';
 import 'package:file_picker/file_picker.dart';
+
+import '../widgets/Page_Three/tickmark.dart';
 
 class UIPageThree extends StatelessWidget {
   const UIPageThree({super.key});
@@ -51,6 +57,30 @@ class UIPageThree extends StatelessWidget {
             const TitleAndImg(
               text1: 'メニュー写真',
               text2: '(1枚~3枚ずつ追加してください)',
+            ),
+            MyDropdown(text1: '營業時間'),
+            MyDropdown(text1: '今天時間'),
+            //tickmarkContainer Starting point
+            TickMark(
+              text1: '定休日',
+            ),
+            const SecondDD(),
+            const CommonTextfield(text1: '美味乚ˋ!刂一', text2: '大十儿女才ㄙ元之手!'),
+            CommonTextfield(text1: '座席数', text2: '40席'),
+            SizedBox(
+              height: 50,
+              child: ElevatedButton(
+                onPressed: () {},
+                style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.resolveWith<Color?>(
+                    (Set<MaterialState> states) {
+                      return Pallete.orange
+                          .withOpacity(.6); // Replace with your desired color
+                    },
+                  ),
+                ),
+                child: const Text('描集保存'),
+              ),
             )
           ],
         ),
