@@ -1,8 +1,5 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 // import 'package:get/get.dart';
-import '../constants/constants.dart';
 import '../widgets/Page_Two/appbar_two.dart';
 import '../widgets/Page_Two/curved_stack.dart';
 import '../widgets/Page_Two/scrren_two_tile.dart';
